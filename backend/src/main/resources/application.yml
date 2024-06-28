@@ -1,0 +1,233 @@
+spring:
+  #  공통 디폴트 설정. 사실상 dev.
+  application:
+    name: smartParking
+  datasource:
+#    url: jdbc:postgresql://172.30.1.222:25432/postgres?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    url: jdbc:postgresql://20.41.113.1:25432/postgres?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: postgres
+    password: wncktkfkd04!
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false  # true 시 jpa 쿼리문 확인 가능
+    hibernate:
+      ddl-auto: none
+      # create : 기존 테이블을 삭제하고 새로 생성 [ DROP + CREATE ]
+      # create-drop : CREATE 속성에 추가로 어플리케이션을 종료할 때 생성한 DDL을 제거 [ DROP + CREATE + DROP ]
+      # update: DB 테이블과 엔티티 매핑 정보를 비교해서 변경 사항만 수정 [ 테이블이 없을 경우 CREATE ] 컬럼속성정보가 바뀌진 않음.
+      # validate: DB 테이블과 엔티티 매핑정보를 비교해서 차이가 있으면 경고를 남기고 어플리케이션을 실행하지 않음
+      # none: 자동 생성 기능을 사용하지 않음
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    throw-exception-if-no-handler-found: true # 404 시 NoHandlerFoundException 을 던지도록 합니다 => (이후 ExceptionController에서 처리하게끔)
+    dispatch-options-request: false
+  servlet:
+    multipart:
+      max-file-size: -1 # -1 == 용량제한 x
+      max-request-size: -1 # -1 == 용량제한 x
+      location: D:/test/data/fileDir/ # 일반 파일
+    multipart2:
+      shp: D:/test/data/shpDir/
+      tmp: D:/test/TMP/
+      json: D:/test/data/jsonDir/
+      standardExcel:
+        download:
+          standard: D:/test/data/standard/
+          pf: D:/test/data/standard/pf/
+          mr: D:/test/data/standard/mr/
+          ill: D:/test/data/standard/ill/
+          illTmp: D:/test/data/standard/ill/tmp/
+  geoserver:
+    domain: http://geoserver.atech1221.com
+    workspace: postgres_dump2
+    user: admin
+    pass: Dpdlxpzm1221!@
+
+  connect-datasource:
+    host: 172.30.1.222
+    port: 25432
+    user: postgres
+    pass: wncktkfkd04!
+
+  # 비밀번호 분실 시 구글 메일 서버를 통해 임시 비밀번호 메일 발송. [231005]구글 지메일.
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: ulsansmartpark
+    password: nqvl wfyp npbq snui
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            enable: true
+
+server: # 8080
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    session:
+      timeout: 30m # 글로벌 세션 타임아웃 설정중.
+    context-path: /
+
+# API 정보
+building-management-api:
+  service-key: u5KRdGjYJ3lP5kdeeSuCO10douasFh%2BsiDQ2xfmIGBFEjnXNzDZzKp9n%2BYb9HJ8Iwko1RapJTh2OMO7TNb4kqQ%3D%3D
+
+protected-area-api:
+  service-key: uNoS0jzDiJrYivvKOvyqbeqCaxWvB9WlFU7Kd0uXUIOXyfDJE2j6r7Ms2wxTi
+
+fire-hydrant-api:
+  service-key: gLqQXaEl7S%2F1SKAHgfQg6i%2FhHE0PHZOxx66vvYlVs0EAXuisC6z57aBdJSdkX2BwZ03megcKkrzvP%2Bd5cx4lNg%3D%3D
+
+pub-pk-api:
+  service-key: gLqQXaEl7S%2F1SKAHgfQg6i%2FhHE0PHZOxx66vvYlVs0EAXuisC6z57aBdJSdkX2BwZ03megcKkrzvP%2Bd5cx4lNg%3D%3D
+
+residnt-api:
+  service-key: gLqQXaEl7S%2F1SKAHgfQg6i%2FhHE0PHZOxx66vvYlVs0EAXuisC6z57aBdJSdkX2BwZ03megcKkrzvP%2Bd5cx4lNg%3D%3D
+
+# 차세대 세외수입행정 특화시스템 연계(불법주정차 단속 데이터)
+illegal-data-api:
+  url: https://서버IP:32311/mediate/ltis # [240627] 검증서버(test) ip 는 전달받지 못했음
+  source: 6310000 # 기관코드 7자리 + 시스템코드 3자리. [240627] 3자리의 시스템 분류 코드를 아직 받지 못함
+  target: 1741000NIS
+
+
+# 로깅. 환경별 xml 파일 생성 후 명시하여 연결.
+logging:
+  config: classpath:log4j2-dev.xml
+
+---
+# azure 테스트. 시연용. linux 환경이므로 파일패스에 유의합니다. 로컬에서 업로드한 파일은 시연환경에서 온전히 받아보기 어려움.
+spring:
+  config:
+    activate:
+      on-profile: prototype
+  jpa:
+    show-sql: false  # true 시 jpa 쿼리문 확인 가능
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://20.41.113.1:25432/postgres?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: postgres
+    password: wncktkfkd04!
+    driver-class-name: org.postgresql.Driver
+
+  servlet:
+    multipart:
+      location: /sp_data/data/fileDir/  # 일반 파일 저장소 경로
+    multipart2:
+      shp: /sp_data/data/shpDir/   # shapefile 저장소.
+      tmp: /sp_data/TMP/
+      json: /sp_data/data/jsonDir/
+      standardExcel:
+        download:
+          standard: /sp_data/data/standard/
+          pf: /sp_data/data/standard/pf/
+          mr: /sp_data/data/standard/mr/
+          ill: /sp_data/data/standard/ill/
+          illTmp: /sp_data/data/standard/ill/tmp
+
+  geoserver:
+    domain: http://20.41.113.1:8181
+    workspace: postgres
+    user: admin
+    pass: wncktkfkd04!
+
+  connect-datasource:
+    host: 20.41.113.1
+    port: 25432
+    user: postgres
+    pass: wncktkfkd04!
+
+logging:
+  config: classpath:log4j2-prod.xml
+
+---
+# 이관 환경설정
+spring:
+  config:
+    activate:
+      on-profile: prod
+  jpa:
+    show-sql: true  # true 시 jpa 쿼리문 확인 가능
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://104.1.71.125:25432/postgres?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: postgres
+    password: wncktkfkd04!
+    driver-class-name: org.postgresql.Driver
+
+  servlet:
+    multipart:
+      location: /sp_data/data/fileDir/  # 일반 파일 저장소 경로
+    multipart2:
+      shp: /sp_data/data/shpDir/   # shapefile 저장소.
+      tmp: /sp_data/TMP/
+      json: /sp_data/data/jsonDir/
+      standardExcel:
+        download:
+          standard: /sp_data/data/standard/
+          pf: /sp_data/data/standard/pf/
+          mr: /sp_data/data/standard/mr/
+          ill: /sp_data/data/standard/ill/
+          illTmp: /sp_data/data/standard/ill/tmp
+
+  geoserver:
+    domain: http://104.1.71.125:8181
+    workspace: postgres
+    user: admin
+    pass: wncktkfkd04!
+
+  connect-datasource:
+    host: 104.1.71.125
+    port: 25432
+    user: postgres
+    pass: wncktkfkd04!
+
+illegal-data-api:
+  # [240627] 운영서버(prod) ip 는 전달받지 못했음
+  url: https://서버IP:32311/mediate/ltis
+
+logging:
+  config: classpath:log4j2-prod.xml
+
+---
+#임시
+spring:
+  config:
+    activate:
+      on-profile: tmpZ
+  jpa:
+    show-sql: false  # true 시 jpa 쿼리문 확인 가능
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://172.30.1.222:25432/postgres?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: postgres
+    password: wncktkfkd04!
+    driver-class-name: org.postgresql.Driver
+  geoserver:
+    domain: http://20.41.113.1:8181
+    workspace: postgres
+    user: admin
+    pass: wncktkfkd04!
+
+  connect-datasource:
+    host: 20.41.113.1
+    port: 25432
+    user: postgres
+    pass: wncktkfkd04!
+
+logging:
+  config: classpath:log4j2-dev.xml

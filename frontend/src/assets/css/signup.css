@@ -1,0 +1,172 @@
+.signupWrap {
+  padding: 3em 0;
+}
+.signupWrap .tit {
+  margin-bottom: 1em;
+}
+.signupWrap .signupStep {
+  margin-bottom: 2em;
+}
+.signupWrap .signupStep ol li {
+  position: relative;
+  padding: 1em;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.25em;
+  background: url(../img/common/bg_step.png) no-repeat right center;
+}
+.signupWrap .signupStep ol li:first-child {
+  border-left: 1px solid #ddd;
+}
+.signupWrap .signupStep ol li:last-child {
+  border-right: 1px solid #ddd;
+  background: none;
+}
+.signupWrap .signupStep ol li.on {
+  color: #285f74;
+  font-weight: 700;
+}
+.signupWrap .signupStep ol li.on:first-child::before {
+  left: 0;
+  width: calc(100% - 1.25em);
+}
+.signupWrap .signupStep ol li.on::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: -1.25em;
+  top: -1px;
+  width: 100%;
+  height: 3px;
+  background: #285f74;
+}
+.signupWrap .signupStep ol li.on:last-child::before {
+  width: calc(100% + 1.25em);
+}
+.signupWrap .signupStep ol li svg {
+  margin-right: 0.25em;
+}
+.signupWrap .signupInner .inner_body {
+  border: 1px solid #ddd;
+  padding: 2em;
+  /*display: none;*/
+}
+.signupWrap .signupInner .inner_body.on {
+  display: block;
+}
+.signupWrap .signupInner .inner_body:first-child ul li h4 {
+  position: relative;
+  margin-top: 1em;
+  padding-left: 0.75em;
+  color: #3b3b3b;
+}
+.signupWrap .signupInner .inner_body:first-child ul li h4:before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: calc(50% - 2px);
+  width: 4px;
+  height: 4px;
+  background: #3b3b3b;
+}
+.signupWrap .signupInner .inner_body:first-child ul li:first-child h4 {
+  margin-top: 0;
+}
+.signupWrap .signupInner .inner_body:first-child .form_group {
+  border-bottom: 0;
+}
+.signupWrap .signupInner .inner_body:first-child .form_group label {
+  width: auto;
+  margin-left: 0.5em;
+}
+.signupWrap .signupInner .inner_body:first-child .form_group .input_group {
+  flex-direction: column;
+}
+.signupWrap .signupInner .inner_body h4 {
+  margin-bottom: 0.5em;
+}
+.signupWrap .signupInner .inner_body .inner_cont {
+  background: #f5f5f5;
+  padding: 1.5em;
+  border-top: 1px solid #ddd;
+}
+.signupWrap .signupInner .inner_body .scroll {
+  height: 14.5em;
+  overflow-y: auto;
+}
+.signupWrap .signupInner .agreeWrap {
+  color: #565656;
+}
+.signupWrap .signupInner .agreeWrap ol li {
+  margin-top: 1em;
+}
+.signupWrap .signupInner .agreeWrap ol li:first-child {
+  margin-top: 0;
+}
+.signupWrap .signupInner .agreeWrap h5 {
+  font-size: 1.125em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.signupWrap .signupInner .agreeWrap dl {
+  padding-left: 0.75em;
+}
+.signupWrap .signupInner .agreeWrap dl dt {
+  font-weight: 400;
+  text-decoration: underline;
+  margin-bottom: 0.25em;
+}
+.signupWrap .signupInner .agreeWrap dl dd {
+  padding-left: 0.75em;
+  margin-bottom: 0.25em;
+}
+.signupWrap .signupInner .agreeWrap dl.order_num dd {
+  position: relative;
+  padding-left: 0.75em;
+}
+.signupWrap .signupInner .form_group {
+  padding: 0.375em 0;
+  justify-content: flex-start;
+}
+.signupWrap .signupInner .form_group label {
+  font-size: 1em;
+  margin-top: 0.75em;
+  width: 10em;
+}
+.signupWrap .signupInner .form_group .input_group {
+  flex-direction: column;
+  width: calc(100% - 10em);
+}
+.signupWrap .signupInner .form_group .input_group span.help_block {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.signupWrap .signupInner .form_group .btn_check {
+  width: 9.5em;
+  margin-left: 0.5em;
+  padding: 0;
+  height: 35px;
+  background: #3b3b3b;
+  color: #fff;
+}
+.signupWrap .signupInner .inner_footer {
+  margin-top: 2em;
+  text-align: center;
+}
+.signupWrap .signupInner .inner_footer .btn {
+  font-weight: 700;
+  color: #fff;
+  border-radius: 0;
+  padding: 1em 2em 0.75em;
+  margin: 0 0.5em;
+}
+.signupWrap .signupInner .inner_footer .btn.btn_next {
+  background: #285f74;
+}
+.signupWrap .signupInner .inner_footer .btn.btn_prev {
+  background: #ddd;
+  color: #333;
+  border: 1px solid #ddd;
+}

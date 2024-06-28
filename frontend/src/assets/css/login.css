@@ -1,0 +1,149 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;700&display=swap");*/
+.loginWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #ebeeef;
+}
+.loginWrap > ul {
+  position: relative;
+  max-width: 35em;
+  width: 100%;
+}
+.loginWrap > ul > li {
+  width: 100%;
+}
+.loginWrap > ul > li:last-child {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 30%;
+  top: 0;
+  z-index: 10;
+  overflow: hidden;
+  box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  background: #fff;
+  border-radius: 0 1em 1em 0;
+  transition: all 0.15s;
+}
+.loginWrap > ul > li.on:last-child {
+  width: 100%;
+}
+.loginWrap > ul > li .form_group {
+  margin-bottom: 1em;
+}
+.loginWrap > ul > li .form_group label {
+  margin-top: 0.75em;
+  color: #808080;
+}
+.loginWrap > ul > li .input_group {
+  display: block !important;
+}
+.loginWrap > ul > li .input_group input {
+  font-size: 0.875em;
+  border: 0;
+  border-bottom: 1px solid #b2b2b2;
+  border-radius: 0;
+}
+.loginWrap > ul > li .btn {
+  background: #285f74;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75em 3.25em !important;
+  border-radius: 3em;
+}
+.loginWrap .loginInner {
+  text-align: left;
+}
+.loginWrap .loginInner .inner_header {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  border-radius: 1em 1em 0 0;
+  height: 11.25em;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginWrap .loginInner .inner_header::after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(54, 84, 99, 0.7);
+}
+.loginWrap .loginInner .inner_header img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.loginWrap .loginInner .inner_header h2 {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 1.75em;
+  z-index: 1;
+}
+.loginWrap .loginInner .inner_body {
+  padding: 3em;
+  background: #fff;
+}
+.loginWrap .loginInner .inner_body .loginDtlWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 7.5em;
+  font-family: "Baloo Bhai 2", cursive;
+  margin-top: 1em;
+}
+.loginWrap .loginInner .inner_body .loginDtlWrap li {
+  display: flex;
+  align-items: center;
+}
+.loginWrap .loginInner .inner_body .loginDtlWrap li label {
+  margin-left: 0.25em;
+  color: #808080;
+}
+.loginWrap .loginInner .inner_footer {
+  background: #fff;
+  padding: 3em;
+  padding-top: 0;
+  border-radius: 0 0 1em 1em;
+  padding-left: 10.5em;
+}
+.loginWrap .loginInner .inner_footer .signUpWrap {
+  margin-top: 3.5em;
+}
+.loginWrap .loginInner .inner_footer .signUpWrap a {
+  font-size: 0.875em;
+  color: #285f74;
+}
+.loginWrap .loginInner .inner_footer .signUpWrap a:hover {
+  text-decoration: underline;
+}
+.loginWrap .findInner {
+  position: relative;
+  height: 100%;
+  padding: 5em 3em;
+}
+.loginWrap .findInner .inner_header {
+  text-align: center;
+  margin-bottom: 3em;
+}
+.loginWrap .findInner .inner_footer {
+  padding-top: 3em;
+  padding-left: 7.5em;
+}
+.loginWrap .findInner .inner_footer .btn {
+  width: 12.5em;
+}
+.loginWrap .findInner a {
+  font-family: "Baloo Bhai 2", cursive;
+}

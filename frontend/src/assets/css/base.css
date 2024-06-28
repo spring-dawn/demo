@@ -1,0 +1,248 @@
+/* RESET */
+body, div, dl, dd, dt, ul, li, ol, h1, h2, h3, h4, h5, h6, form, input, legend, textarea, select, fieldset, p, button {
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+  color: #000;
+}
+
+body, input, textarea, select, button, table {
+  line-height: 1.4;
+}
+
+li, ol, ul {
+  list-style: none;
+}
+
+em, address {
+  font-style: normal;
+}
+
+img, fieldset {
+  border: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box !important;
+}
+
+.ir {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.db {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.cd {
+  cursor: default;
+}
+
+.hide {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* color */
+/* position */
+.absolute {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+
+.fixed {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+}
+
+/* display */
+.flxCnt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flxRit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* padding */
+/* margin */
+/* font */
+/* border */
+/* table */
+.tbl {
+  background: #fff;
+}
+.tbl table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* form */
+.form_control {
+  display: block;
+  width: auto;
+  font-size: 1em;
+  color: #222;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e3e3e3;
+  border-radius: 0.25em;
+  padding: 0.5em 1.25em;
+}
+.form_control::-moz-placeholder {
+  color: #aaa;
+}
+.form_control:-ms-input-placeholder {
+  color: #aaa;
+}
+.form_control::placeholder {
+  color: #aaa;
+}
+
+.form_group {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25em;
+}
+.form_group label {
+  width: 7.5em;
+  font-size: 1em;
+}
+.form_group .input_group {
+  display: flex;
+  width: calc(100% - 7.5em);
+}
+.form_group .input_group input, .form_group .input_group select, .form_group .input_group textarea {
+  width: 100%;
+  padding: 0.375em 0.5em;
+  min-height: 2.5em;
+}
+
+input:-moz-read-only, textarea:-moz-read-only {
+  background: #efefef;
+}
+
+input:read-only, textarea:read-only {
+  background: #efefef;
+}
+
+.help_block {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  background: #f2dede;
+  border-radius: 0.25em;
+  margin-top: 0.5em;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #a94442;
+}
+.help_block::after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0.5em;
+  top: -0.5em;
+  width: 0;
+  height: 0;
+  border-bottom: 0.5em solid #f2dede;
+  border-left: 0.25em solid transparent;
+  border-right: 0.25em solid transparent;
+}
+
+/* button */
+.btn {
+  padding: 0.75em 1em;
+  margin-right: 5px;
+  border: 0;
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25em;
+}
+.btn.btn_write {
+  background: #005399 !important;
+  border: 1px solid #005399;
+  color: #fff !important;
+}
+.btn.btn_upload {
+  position: relative;
+  margin-right: 1em;
+  border: 1px solid rgb(9, 164, 158);
+}
+.btn.btn_upload::before {
+  display: block;
+  position: absolute;
+  content: "";
+  right: -0.5em;
+  top: calc(50% - 0.5em);
+  width: 1px;
+  height: 1em;
+  background: #ccc;
+}
+
+.btn_modify {
+  background: #ddd !important;
+}
+
+.btn_search {
+  background: #5d6169 !important;
+  color: #fff !important;
+}
+
+.btn_save {
+  background: #43a7c7;
+  border: 1px solid #43a7c7;
+  color: #fff;
+}
+
+.btn_excel {
+  background: #1D6F42;
+  border: 1px solid #1D6F42;
+  color: #fff;
+}
+
+.btn_close {
+  background: #fff;
+  border: 1px solid #43a7c7;
+  color: #43a7c7;
+}
+
+.btn_delete {
+  background: #ff3636;
+  border: 1px solid #ff3636;
+  color: #fff;
+}
+
+/* background */

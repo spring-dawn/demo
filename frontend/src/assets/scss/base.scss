@@ -1,0 +1,313 @@
+/* RESET */
+* {
+  font-family: 'Palatino'
+}
+body, div, dl, dd, dt, ul, li, ol, h1 ,h2, h3, h4, h5, h6, form, input, legend, textarea, select, fieldset, p, button {margin: 0; padding: 0;}
+a, a:hover, a:focus {text-decoration: none; color: #000;}
+body, input, textarea, select, button, table {line-height: 1.4;}
+li,ol,ul {list-style: none;}
+em,address {font-style: normal;}
+img,fieldset{border:0;}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: border-box !important;}
+.ir {width: 0; height: 0; font-size: 0; line-height: 0; overflow: hidden; position: absolute; left: 0; top:0;}
+.db {display: block; content: ""; clear: both;}
+.cp {cursor:pointer;}
+.cd {cursor:default;}
+.hide {display: none !important;}
+.hidden {display: none !important;}
+
+
+/* color */
+$white: #fff;
+$red: #ff3636;
+$orange: #f96332;
+$yellow: #ffb236;
+$green: #18ce0f;
+$skyblue: #2ca8ff;
+$blue: #1363DF;
+$navy: #06283D;
+$lightgray: #e3e3e3;
+$gray: #aaa;
+$darkGray: #515151;
+$black: #000;
+
+.wrapper {
+  min-width: 400px;
+}
+
+/* position */
+@mixin position(
+	$p: absolute,
+	$t: null, $b: null, $l: null, $r: null
+){
+	position: $p;
+	top: $t; bottom: $b; left: $l; right: $r;
+}
+.absolute {
+	@include position(
+		$b: 10px, $r: 20px
+	);
+}
+.fixed {
+	@include position(
+		fixed,
+		$t: 30px, $r: 40px
+	)
+}
+
+
+/* display */
+@mixin flex(
+	$direc: null,
+	$wrap: null,
+	$contAlign: null,
+	$contJusti: null,
+	$itemAlign: null
+){
+	display: flex;
+	flex-direction: $direc;
+	flex-wrap: $wrap;
+	align-content: $contAlign;
+	justify-content: $contJusti;
+	align-items: $itemAlign
+}
+.flxCnt {
+	@include flex(
+		$contJusti: space-between, $itemAlign: center
+	);
+}
+.flxRit {
+	@include flex(
+		$contJusti: flex-end, $itemAlign: center
+	);
+}
+
+/* padding */
+@mixin padding(
+	$t: null, $r: null, $b: null, $l: null
+){
+	padding: {
+		top: $t; right: $r; bottom: $b; left: $l;
+	}
+}
+
+
+/* margin */
+@mixin margin(
+	$t: null, $r: null, $b: null, $l: null
+){
+	margin: {
+		top: $t; right: $r; bottom: $b; left: $l;
+	}
+}
+
+
+/* font */
+@mixin font(
+	$family: sans-serif,
+	$size: 16px,
+	$weight: 400,
+){
+	font: {
+		family: $family;
+		size: $size;
+		weight: $weight;
+	}
+}
+
+
+/* border */
+$bdC: #ddd;
+@mixin border(
+	$w: 1px,
+	$stl: solid,
+	$c: $bdC,
+	$r: null,
+){
+	border: {
+		width: $w;
+		style: $stl;
+		color: $c;
+		radius: $r;
+	}
+}
+@mixin borderT(
+	$w: 1px,
+	$stl: solid,
+	$c: bdC,
+){
+	border-top: {
+		width: $w;
+		style: $stl;
+		color: $c;
+	}
+}
+@mixin borderB(
+	$w: 1px,
+	$stl: solid,
+	$c: $bdC,
+){
+	border-bottom: {
+		width: $w;
+		style: $stl;
+		color: $c;
+	}
+}
+@mixin borderL(
+	$w: 1px,
+	$stl: solid,
+	$c: bdC,
+){
+	border-left: {
+		width: $w;
+		style: $stl;
+		color: $c;
+	}
+}
+@mixin borderR(
+	$w: 1px,
+	$stl: solid,
+	$c: bdC,
+){
+	border-right: {
+		width: $w;
+		style: $stl;
+		color: $c;
+	}
+}
+
+
+/* table */
+@mixin table(
+	$w: 100%,
+	$bdW: null,
+	$bdC: #ddd,
+){
+	table {
+		width: $w;
+		border-collapse: collapse;
+		// @include borderT((w: $bdW, c: $bdC)...);
+	}
+}
+.tbl {
+	@include table; background: #fff;
+}
+
+
+/* form */
+.form_control {
+	$bdC: #e3e3e3;
+	display: block; width: auto;
+	font-size: 1em; color: #222;
+	@include border((c: $bdC)...); padding: .5em 1.25em;
+	// border-radius: .25em;
+
+	&::placeholder {color: $gray; }
+}
+.form_group {
+	position: relative; @include flex((contJusti: space-between)...); margin-bottom: .25em;
+
+	$w: 8.5em;
+
+	label {width: $w; font-size: 1em; }
+
+	.input_group {
+		@include flex();  width: calc(100% - $w);
+
+		input, select, textarea {
+			font-family: "Pretendard"; font-weight: 300;
+			width: 100%; padding: .25em .5em; min-height: 2.125em;
+		}
+
+    select:disabled {
+      background: #e7e5e5;
+    }
+
+		select {
+			-webkit-appearance:none; // 크롬
+			-moz-appearance:none; // 파이어폭스
+			appearance:none;
+			background: url(../img/common/select.png) no-repeat right center; background-position-x: calc(100% - .5em);
+			padding-right: 1.5em;
+		}
+	}
+ }
+ input:read-only, textarea:read-only {background: #efefef; }
+ .help_block {
+	$bgC: #f2dede; $w: .5em;
+
+	position: relative; display: inline-block; padding: .5em .75em; background: $bgC; border-radius: .25em; margin-top: $w;
+	@include font((size: .8em, weight: 700)...); color: #a94442;
+
+	&::after {display: block; content: ''; position: absolute; left: $w; top: -$w; width: 0; height: 0;
+		border-bottom: $w solid $bgC; border-left: calc($w / 2) solid transparent; border-right: calc($w / 2) solid transparent;
+	}
+}
+
+
+/* button */
+.btn {
+	padding: .75em 1em; border: 0; font-size: 1em; text-align: center; cursor: pointer; border-radius: 9px;
+
+	&.btn_write {
+		$c: #2b77ad;;
+
+		background: $c !important; border: 1px solid $c;  // background: #05a3a4 !important;
+		color: $white !important;
+		border-radius: 9px !important;
+	}
+
+	&.btn_upload {
+		$mg: 1em;
+
+		position: relative; margin-right: $mg; border: 1px solid rgb(9, 164, 158);
+
+		&::before {
+			$w: 1em;
+
+			display: block; position: absolute; content: ''; right: -$mg/2; top: calc(50% - $w/2); width: 1px; height: $w; background: #ccc;
+		}
+	}
+}
+.btn_modify {background: #ddd !important;  }
+.btn_search {background: #5d6169 !important; color: $white !important; }
+
+.btn_save {
+	$c: #43a7c7;
+	background: $c; border: 1px solid $c; color: $white;
+}
+.btn_move_login {
+  background: #5bc743;
+  border: 1px solid #5bc743;
+  color: #fff;
+}
+.btn_close {
+	$c: rgba(0,0,0,0.2);
+	background: $white; border: 1px solid $c; color: #000;
+}
+.btn_delete {
+	background: $red; border: 1px solid $red; color: $white;
+}
+.btn_excel{
+	$c: #257d4d;
+	background: $c; border: 1px solid $c; color: $white;
+	border-radius: 9px !important;
+}
+.btn_excel2{
+	$c: #31915cf3;
+	background: $c; border: 1px solid $c; color: $white;
+	border-radius: 9px !important;
+}
+
+
+/* background */
+@mixin bg (
+	$color: $white
+){
+	background: $color;
+}
+
+
+
+

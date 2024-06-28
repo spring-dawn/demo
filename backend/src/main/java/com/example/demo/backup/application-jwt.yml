@@ -1,0 +1,3 @@
+#spring:
+#  jwt:
+#    secret: testtt123443211234testtt123443211234

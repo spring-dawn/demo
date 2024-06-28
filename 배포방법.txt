@@ -1,0 +1,7 @@
+1. 폴더 생성
+2. backend, frontend(node_modules x), nginx_conf, docker-compose, sp_data 옮기기
+- gradlew 포맷 오류 시
+sudo apt-get install dos2unix
+dos2unix gradlew
+
+3. 도커컴포즈 실행

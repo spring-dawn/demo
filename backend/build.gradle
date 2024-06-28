@@ -1,0 +1,120 @@
+buildscript {
+    ext {
+        queryDslVersion = "5.0.0"
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+}
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+repositories {
+    maven { url "https://repo.osgeo.org/repository/release/"}
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'mysql:mysql-connector-java'
+
+    implementation 'com.jcraft:jsch:0.1.55'
+
+    implementation 'org.geotools:gt-main:26.6'
+    implementation 'org.geotools:gt-shapefile:26.6'
+    implementation 'org.geotools.jdbc:gt-jdbc-postgis:26.6'
+    implementation 'org.geotools:gt-epsg-hsql:26.6'
+    implementation 'org.geotools:gt-swing:26.6'
+    implementation 'org.geotools:gt-geojson:26.6'
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'    //validation
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // map struct. 항상 lombok 보다 아래에 선언되어야 합니다.
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+    implementation 'commons-fileupload:commons-fileupload:1.4'
+
+    implementation 'org.json:json:20220924'
+    // apache poi: 엑셀 라이브러리. 디폴트 xssf(xlsx) 타입, ooxml 은 hssf(xls) 확장자 지원.
+    implementation 'org.apache.poi:poi:5.1.0'
+    implementation 'org.apache.poi:poi-ooxml:5.1.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.11'
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor:2.7.1'
+
+    // JUnit 지원
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    // for PBKDF2(231107 현재 비밀번호 암호화가 SHA 로 바뀌어 쓰이지 않음)
+    implementation 'commons-codec:commons-codec:1.15'
+
+    // log
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'io.sentry:sentry-log4j2:1.7.30'
+
+    implementation 'io.springfox:springfox-boot-starter:3.0.0' // swagger
+    // querydsl
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+}
+
+// Java 컴파일러 옵션에 MapStruct 애노테이션 프로세서 등록
+compileJava.options.annotationProcessorPath = configurations.annotationProcessor
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+def querydslDir = "$buildDir/generated/querydsl"
+
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+
+sourceSets {
+    main.java.srcDir querydslDir
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    querydsl.extendsFrom compileClasspath
+}
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}

@@ -1,0 +1,417 @@
+/* RESET */
+body, div, dl, dd, dt, ul, li, ol, h1, h2, h3, h4, h5, h6, form, input, legend, textarea, select, fieldset, p, button {
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+  color: #000;
+}
+
+body, input, textarea, select, button, table {
+  line-height: 1.4;
+}
+
+li, ol, ul {
+  list-style: none;
+}
+
+em, address {
+  font-style: normal;
+}
+
+img, fieldset {
+  border: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box !important;
+}
+
+.ir {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.db {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.cd {
+  cursor: default;
+}
+
+.hide {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* color */
+/* position */
+.absolute {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+
+.fixed {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+}
+
+/* display */
+.flxCnt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flxRit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* padding */
+/* margin */
+/* font */
+/* border */
+/* table */
+.tbl {
+  background: #fff;
+}
+.tbl table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* form */
+.form_control {
+  display: block;
+  width: auto;
+  font-size: 1em;
+  color: #222;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e3e3e3;
+  border-radius: 0.25em;
+  padding: 0.5em 1.25em;
+}
+.form_control::-moz-placeholder {
+  color: #aaa;
+}
+.form_control:-ms-input-placeholder {
+  color: #aaa;
+}
+.form_control::placeholder {
+  color: #aaa;
+}
+
+.form_group {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25em;
+}
+.form_group label {
+  width: 7.5em;
+  font-size: 1em;
+}
+.form_group .input_group {
+  display: flex;
+  width: calc(100% - 7.5em);
+}
+.form_group .input_group input, .form_group .input_group select, .form_group .input_group textarea {
+  width: 100%;
+  padding: 0.375em 0.5em;
+  min-height: 2.5em;
+}
+
+input:-moz-read-only, textarea:-moz-read-only {
+  background: #efefef;
+}
+
+input:read-only, textarea:read-only {
+  background: #efefef;
+}
+
+.help_block {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  background: #f2dede;
+  border-radius: 0.25em;
+  margin-top: 0.5em;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #a94442;
+}
+.help_block::after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0.5em;
+  top: -0.5em;
+  width: 0;
+  height: 0;
+  border-bottom: 0.5em solid #f2dede;
+  border-left: 0.25em solid transparent;
+  border-right: 0.25em solid transparent;
+}
+
+/* button */
+.btn {
+  padding: 0.75em 1em;
+  border: 0;
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25em;
+}
+.btn.btn_write {
+  background: #005399 !important;
+  border: 1px solid #005399;
+  color: #fff !important;
+}
+.btn.btn_upload {
+  position: relative;
+  margin-right: 1em;
+  border: 1px solid rgb(9, 164, 158);
+}
+.btn.btn_upload::before {
+  display: block;
+  position: absolute;
+  content: "";
+  right: -0.5em;
+  top: calc(50% - 0.5em);
+  width: 1px;
+  height: 1em;
+  background: #ccc;
+}
+
+.btn_modify {
+  background: #ddd !important;
+}
+
+.btn_search {
+  background: #5d6169 !important;
+  color: #fff !important;
+}
+
+.btn_save {
+  background: #43a7c7;
+  border: 1px solid #43a7c7;
+  color: #fff;
+}
+
+.btn_close {
+  background: #fff;
+  border: 1px solid #43a7c7;
+  color: #43a7c7;
+}
+
+.btn_delete {
+  background: #ff3636;
+  border: 1px solid #ff3636;
+  color: #fff;
+}
+
+/* background */
+._col_gap {
+  margin-bottom: 0;
+  margin-top: 0.5em;
+}
+
+.modal-xl {
+  max-width: 1140px;
+}
+
+.modal-lg {
+  max-width: 920px;
+}
+
+.modal-md {
+  max-width: 550px;
+}
+
+.modal-sm {
+  max-width: 300px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+}
+.modal > section {
+  width: 90%;
+  margin: 0 auto;
+  -webkit-animation: modal-show 0.3s;
+          animation: modal-show 0.3s;
+  overflow: hidden;
+}
+.modal > section header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65em;
+  padding-left: 1.25em;
+  background-color: #527892; /* border-radius: $r $r 0 0; */
+  color: #fff;
+}
+.modal > section header button {
+  display: flex;
+  font-size: 1.75em;
+  color: #fff;
+  padding: 0.375em;
+  line-height: 0.5;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.modal > section main {
+  /* padding: 1em; */
+  padding-bottom: 2em;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+  background: #fff;
+}
+.modal > section main .modal_body {
+  padding: 1.5em 1em;
+}
+.modal > section main .form_group label {
+  margin-top: 0.75em;
+}
+.modal > section main .form_group .input_group {
+  position: relative;
+  display: block;
+}
+.modal > section main .form_group .input_group input, .modal > section main .form_group .input_group select, .modal > section main .form_group .input_group textarea {
+  font-size: 0.875em;
+  padding: 0.75em;
+  padding-top: 0.875em;
+  line-height: 1;
+}
+.modal > section main .form_group .input_group select {
+  padding-left: 0.5em;
+}
+.modal > section main .form_group .input_group input#userId:-moz-read-only {
+  width: 100%;
+}
+.modal > section main .form_group .input_group input#userId:read-only {
+  width: 100%;
+}
+.modal > section main .form_group .input_group input#userId ~ .btn_check {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 7.5em;
+  background: #515151;
+  color: #fff;
+  padding: 0.5em; /* margin-left: 1em; */
+}
+.modal > section main .btn_check {
+  position: absolute;
+  left: -1.5em;
+  top: 0;
+  font-size: 0.875em;
+  color: #fff;
+  width: 7.5em;
+  height: 2.875em;
+  background: #aaa;
+  padding: 0.5em;
+}
+.modal > section footer {
+  margin-top: 0.5em;
+  padding-top: 1.5em;
+  padding-right: 1.5em;
+  border-top: 1px solid #ddd;
+  text-align: right;
+  background: #fff;
+  border-radius: 0 0 0.5em 0.5em;
+}
+.modal > section footer .btnWrap {
+  margin-top: 0;
+  text-align: center;
+}
+.modal > section footer .btnWrap .btn {
+  font-size: 0.875em;
+  font-weight: 700;
+  padding: 1.125em 4em 0.875em;
+  margin-left: 1em;
+}
+.modal > section footer .btnWrap .btn:first-child {
+  margin-left: 0;
+}
+.modal.openModal {
+  display: flex;
+  align-items: center;
+  -webkit-animation: modal-bg-show 0.3s;
+          animation: modal-bg-show 0.3s;
+}
+
+@-webkit-keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@-webkit-keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

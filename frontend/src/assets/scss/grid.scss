@@ -1,0 +1,34 @@
+
+/* grid */
+._row {
+	display: flex; flex-wrap: wrap;
+}
+
+._col_gap { margin: 1em; }
+@for $i from 1 through 12 {
+	._col#{$i} {
+		width: calc(8.3333% * #{$i});
+	}
+
+	._col_gap._col#{$i} {
+		width: calc(8.3333% * #{$i} - 2em);
+	}
+}
+
+
+/* responsive */
+@media screen and (max-width:1200px) {
+
+}
+
+@media screen and (max-width:920px) {
+
+}
+
+@media screen and (max-width:768px) {
+	
+}
+
+@media screen and (max-width:460px) {
+
+}

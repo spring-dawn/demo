@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="logNm">smartParking</Property>
+        <Property name="layoutPattern">[${logNm}] %style{%d{yyyy-MM-dd HH:mm:ss}}{cyan} %highlight{%-5p}{FATAL=bg_red,
+            ERROR=red, INFO=green, DEBUG=blue} --- %style{[%thread]}{yellow} %logger[%method:%line] - %msg %n
+        </Property>
+        <!--       로그파일 생성 위치. /logs 로만 설정하면 배포 드라이브의 루트 폴더에 만들어짐 -->
+        <Property name="basePath">../../smartParkingLogs</Property>
+    </Properties>
+
+    <Appenders>
+        <!--콘솔-->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${layoutPattern}" disableAnsi="false"/>
+        </Console>
+        <!--로그 파일. fileName 에서 저장 경로 설정 가능 -->
+        <RollingFile name="file" fileName="${basePath}/${logNm}.log" filePattern="/logs/${logNm}_%d{yyyyMMdd}.log">
+            <PatternLayout pattern="${layoutPattern}"/>
+
+            <Policies>
+                <!--                매일 새로운 로그 파일 생성-->
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <!-- 이전 로그 파일 삭제 설정 -->
+                <Delete basePath="${basePath}">
+                    <IfFileName glob="${logNm}_*.log"/>
+                    <IfLastModified age="180d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO" additivity="false">
+            <AppenderRef ref="console"/>
+            <!--            주석 해제 시 파일 로깅 시작 -->
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>

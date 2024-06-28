@@ -1,0 +1,129 @@
+#infoPage,#pwPage {
+
+  .btm_wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .btn_save {
+      margin-top: 8px;
+      width: 120px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+  }
+
+  .input_wrap {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 22px;
+    width: 90%;
+    overflow: hidden;
+    height: 100vh;
+    flex-direction: column;
+
+    h2 {
+      border-bottom: 2px solid #00A5B5;
+      padding: 10px 0 10px 15px;
+      font-weight: bold;
+    }
+
+    form {
+      background-color: #f5f9fb;
+      padding-right: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      padding: 8px;
+    }
+
+    .form-ele {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      position: relative;
+
+      label {
+        text-align: left;
+        margin-right: 40px;
+        padding-left: 15px;
+        font-weight: bold;
+        width: 30%;
+        min-width: 100px;
+      }
+
+      input,select {
+        float: right;
+        width: 60%;
+        margin-right: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: 35px;
+        font-size: 13px;
+        padding: 6px;
+      }
+
+      > span {
+        position: absolute;
+        left: 38.5%;
+        bottom: -30px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #00A5B5;
+        box-shadow: 0 0 3px #00A5B5;
+      }
+    }
+
+    .same {
+      color: green;
+      text-align: right;
+      margin-right: 15px;
+      margin-top: -10px;
+      font-size: 12px;
+    }
+
+    .dif {
+      color: red;
+      text-align: right;
+      margin-right: 15px;
+      margin-top: -10px;
+      font-size: 12px;
+    }
+  }
+
+  .ant-btn {
+    background-color: #00A5B5;
+    border-radius: 5px;
+    border: 1px solid #00A5B5;
+    top: 30px;
+    width: 8%;
+  }
+}
+
+#infoPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  height: calc(80vh);
+}
+
+#pwPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    height: calc(45vh);
+    margin-top: 130px;
+}
